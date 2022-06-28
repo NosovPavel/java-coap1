@@ -24,7 +24,7 @@ import com.mbed.coap.packet.BlockSize;
 public class CoapTcpCSM {
     // see https://tools.ietf.org/html/draft-ietf-core-coap-tcp-tls-09#section-5.3 for base values (5.3.1, 5.3.2)
     private static final int BASE_MAX_MESSAGE_SIZE = 1152;
-    private static final boolean BASE_BLOCKWISE = false;
+    private static final boolean BASE_BLOCKWISE = true;
     public static final CoapTcpCSM BASE = new CoapTcpCSM(BASE_MAX_MESSAGE_SIZE, BASE_BLOCKWISE);
 
     private final boolean blockwiseTransfer;
@@ -39,7 +39,7 @@ public class CoapTcpCSM {
 
     public CoapTcpCSM(long maxMessageSize, boolean blockwiseTransfer) {
         this.maxMessageSize = maxMessageSize;
-        this.blockwiseTransfer = blockwiseTransfer;
+        this.blockwiseTransfer = true;
     }
 
     public CoapTcpCSM withNewOptions(Long maxMessageSize, Boolean blockwiseTransfer) {
